@@ -1,0 +1,12 @@
+import re
+
+def extract_emails(text):
+
+  pattern = r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+  emails = re.findall(pattern, text)
+  return emails
+
+
+input_string = 'Contact us at support@example.com and sales@example.org.'
+emails_found = extract_emails(input_string)
+emails_found
