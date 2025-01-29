@@ -1,0 +1,16 @@
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+def cosine_sim(text1, text2):
+
+    vectorizer = TfidfVectorizer()
+    vectors = vectorizer.fit_transform([text1, text2])
+    similarity = cosine_similarity(vectors[0], vectors[1])[0][0]
+    return similarity
+
+string1 = "This is a sample sentence."
+string2 = "This sentence is similar to the first one."
+
+similarity_score = cosine_sim(string1, string2)
+print("Cosine Similarity:", similarity_score)
